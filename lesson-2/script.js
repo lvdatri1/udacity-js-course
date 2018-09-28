@@ -1,6 +1,7 @@
 
 $(function () { 
-    var gameScore = 0;
+    var gameScore = [];
+    var currentCat = ""; 
     var imgList = ["cat1.jpg", "cat2.jpg", "cat3.jpg", "cat4.jpg", "cat5.jpg"];
     console.log("helloword");
     function drawNav() { 
@@ -31,6 +32,7 @@ $(function () {
 
 
     function drawCat(catImg) { 
+        currentCat = catImg;
         var temp = document.createElement("img");
         temp.setAttribute("src", catImg);
         temp.setAttribute("id", "cat-img-id");
@@ -44,20 +46,26 @@ $(function () {
         btnRS.appendChild(document.createTextNode("Reset"));
         var text1 = document.createTextNode("Reuslt:");
         var textResult = document.createElement("label");
-        textResult.appendChild(document.createTextNode("0"));
+        if (gameScore[currentCat] == undefined)
+            textResult.appendChild(document.createTextNode("0"));
+        else
+            textResult.appendChild(document.createTextNode(gameScore[currentCat]));
+
         textResult.setAttribute("id", "result-lb-id");
         gameP.appendChild(text1);
         gameP.appendChild(textResult);
         gameP.appendChild(btnRS);
         $("#game-id").append(gameP);
         $("#cat-img-id").click(function () { 
-            gameScore++;
-            $("#result-lb-id").html(gameScore);
+            if (gameScore[currentCat] == undefined) gameScore[currentCat] = 0;
+            gameScore[currentCat]++;
+            $("#result-lb-id").html(gameScore[currentCat]);
         });
         $("#btn-reset-id").click(function () { 
-            gameScore = 0;
-            $("#result-lb-id").html(gameScore);
+            gameScore[currentCat] = 0;
+            $("#result-lb-id").html(gameScore[currentCat]);
         });
+       
         
 
 
