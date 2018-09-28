@@ -12,7 +12,7 @@ $(function () {
             temp.setAttribute("id", imgList[i]);
             temp.setAttribute("href", "#" + imgList[i]);
          
-            var temp2 = document.createTextNode("----Cat "  + (i+1) + "  ");
+            var temp2 = document.createTextNode("----Cat "  + (i+1) + "  >");
             temp.appendChild(temp2);
             console.log(temp);
             temp.addEventListener("click", function (event) { 
@@ -44,7 +44,7 @@ $(function () {
         var btnRS = document.createElement("button");
         btnRS.setAttribute("id", "btn-reset-id");
         btnRS.appendChild(document.createTextNode("Reset"));
-        var text1 = document.createTextNode("Reuslt:");
+        var text1 = document.createTextNode("Result:");
         var textResult = document.createElement("label");
         console.log(gameScore[currentCat]);
         if (gameScore[currentCat] == undefined) {
