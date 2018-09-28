@@ -46,10 +46,16 @@ $(function () {
         btnRS.appendChild(document.createTextNode("Reset"));
         var text1 = document.createTextNode("Reuslt:");
         var textResult = document.createElement("label");
-        if (gameScore[currentCat] == undefined)
+        console.log(gameScore[currentCat]);
+        if (gameScore[currentCat] == undefined) {
+            console.log("cat 0 here");
             textResult.appendChild(document.createTextNode("0"));
-        else
+
+        }
+        else {
+            console.log("Print cat score here:");
             textResult.appendChild(document.createTextNode(gameScore[currentCat]));
+        }
 
         textResult.setAttribute("id", "result-lb-id");
         gameP.appendChild(text1);
